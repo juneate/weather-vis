@@ -55,10 +55,10 @@ const goGetWeather = (lat, lon) => {
       const sunlightM = sunlightS / 60;
       const sunlightH = sunlightM / 60;
       
-      if (dt < sunset) tense = `will be`
-      else tense = `was`
+      //if (dt < sunset) tense = `will be`
+      //else tense = `was`
 
-      $(`#sun`).innerHTML = `There ${tense} <strong>${sunlightH.toFixed(2)} hours</strong> of sunlight today.`
+      $(`#sun`).innerHTML = `There ${ (dt < sunset) ? `will be` : `was` } <strong>${sunlightH.toFixed(2)} hours</strong> of sunlight today.`
 
       // TODO: Take the number of ms and compare it to things
       // TODO: If dt is less/greater than sunrise/sunset, then...

@@ -55,11 +55,17 @@ const goGetWeather = (lat, lon) => {
       const sunlightM = sunlightS / 60;
       const sunlightH = sunlightM / 60;
       
-      $(`#sun`).innerHTML = `There is <strong>${sunlightH.toFixed(2)} hours</strong> of sunlight today.`
+      if (dt < sunset) tense = `will be`
+      else tense = `was`
+
+      $(`#sun`).innerHTML = `There ${tense} <strong>${sunlightH.toFixed(2)} hours</strong> of sunlight today.`
 
       // TODO: Take the number of ms and compare it to things
       // TODO: If dt is less/greater than sunrise/sunset, then...
       // TODO: Could be represented as a line split into three (night/day/night), with our position as a pointer (visualize the day)
+
+
+
 
       const shortestDay = new Date(`December 21, 2019`).getTime();
       const longestDay = new Date(`June 21, 2019`).getTime();
